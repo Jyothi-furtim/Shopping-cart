@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="p-md-4">
+        <div class="d-flex justify-content-between">
+            <h4 class="text-danger">Product Details</h4>
+        <button class="btn btn-danger" (click)="back()">Back</button>
+    </div>
+    <div class="row pt-4">
+        <div class="col-5">
+            <img class="img1" src={{image}} alt="">
+        </div>
+        <div class="col-7 ">
+            <div class="px-5">
+                <h2 class="text-dark">{{productName}}</h2>
+                <hr>
+                <div>
+                    <span class="material-icons-outlined icons bold">
+                        currency_rupee
+                        </span> 
+                    <span class="fs-4 text-ash"><strong>{{price}}</strong></span>
+                </div>
+                <div class="pt-3 pe-3 ">
+                    {{description}}
+                </div>
+                <div class="pt-3">
+                    <div class="d-flex pt-2 ">
+                  
+                        <button class="bg-transparent border-0 d-flex align-items-center" (click)="removeCart()" >
+                            <span class="material-icons-outlined text-danger">
+                                remove_circle
+                                </span>
+                        </button>
+                        <span class="px-1  d-flex align-items-center">
+                            <strong>{{count}}</strong>
+                        </span>
+                        <button class="bg-transparent  border-0 d-flex align-items-center" (click)="addCart()" >
+                            <span class="material-icons-outlined text-success">
+                                add_circle
+                                </span>
+                        </button>
+                    
+                    </div>
+                </div>
+                <div class="pt-3">
+                    <button class="btn btn-danger" (click)="addToCart()"> Add to cart</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

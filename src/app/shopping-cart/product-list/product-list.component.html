@@ -1,0 +1,37 @@
+<div class="container-fluid">
+<div class="p-md-4">
+    <div class="d-flex justify-content-between" *ngIf="!addProductsComp">
+        <h4 class="text-danger">Product Lists</h4>
+        <button class="btn btn-danger" (click)="addProducts()">Add Products</button>
+    </div>
+    <div class="d-flex justify-content-between" *ngIf="addProductsComp">
+        <h4 class="text-danger">Product Info</h4>
+        <button class="btn btn-danger" (click)="back()">Back</button>
+    </div>
+    <div class="row pt-4" *ngIf="!addProductsComp" >
+        <div class="col-2" *ngFor="let item of productList">
+            <div class="card card-hg">
+                    <a class="text-decoration-none" (click)="productDetails(item)">
+                        <div>                    
+                            <img class="img1" [src]= item.imageUrl alt="" >
+                        </div>
+                    <div class="px-2 py-3">
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-danger"><strong>{{item.name}}</strong></span>
+                            <span>
+                                <span class="material-icons-outlined icons">
+                                    currency_rupee
+                                    </span> <span class="fs-5 text-danger "><strong>{{item.price}}</strong></span></span>
+                        </div>
+                        <div class="desc desc1">{{item.description}}</div>
+                    </div>
+                    </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div *ngIf="addProductsComp">
+    <app-add-products (productItem)="addProduct($event)" (deleteItem)="deleteProduct($event)"></app-add-products>
+</div>
+

@@ -1,0 +1,24 @@
+<div class="bg-dark">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form #login="ngForm" (ngSubmit)="login.form.valid && submitLogin(login)" autocomplete="off">
+        <h3 class="text-dark">Login</h3>
+    
+        <label  class="text-dark" for="username">Username<span class="text-danger">*</span></label>
+        <input class="form-control " type="text" placeholder="Email" id="username" name="username" #username="ngModel" [(ngModel)]="loginForm.username" >
+    
+        <label  class="text-dark" for="password ">Password<span class="text-danger">*</span></label>
+        <input class="form-control " type="password" placeholder="Password" id="password" name="password" #password="ngModel" [(ngModel)]="loginForm.password">
+    
+        <button class="btn bg-dark text-white">Log In</button>
+        <div class="text-danger text-center" *ngIf="isLoggedIn">
+            Login Success
+        </div>
+        <div class="text-danger text-center" *ngIf="isLoggedIn != null && !isLoggedIn">
+            Invalid username/password
+        </div>
+    </form>
+    
+</div>

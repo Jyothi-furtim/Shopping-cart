@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "name":"apple",
+        "price":"25",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolorum temporibus repellat, voluptatem, ipsam culpa maiores soluta reprehenderit recusandae tenetur esse totam libero eaque. Mollitia eligendi sunt rerum voluptatum atque?",
+        "imageUrl":"assets/images/apple.jpg"
+    },
+    {
+        "id":2,
+        "name":"mango",
+        "price":"45",
+        "description":"lorem ipsum sdsdada",
+        "imageUrl":"assets/images/mango.jpg"
+    },
+    {
+        "id":3,
+        "name":"kiwi",
+        "price":"65",
+        "description":"lorem ipsum",
+        "imageUrl":"assets/images/kiwi.jpg"
+    }
+]

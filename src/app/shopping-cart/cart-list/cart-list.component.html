@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="p-md-4" >
+        <div class="d-flex justify-content-between">
+            <h4 class="text-danger">Cart Lists</h4>
+            <button class="btn btn-danger" (click)="back()">Back</button>
+        </div>
+        <div class="row pt-4" *ngIf="cartList.length > 0 && !purchase">
+            <div class="col-8">
+                <div class="card product-list">
+                    <div class="card-body">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Item Info</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">SubTotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of cartList; let i=index">
+                                    <td>
+                                        <img class="tab-img" [src]=item.imageUrl alt="">
+                                        <span class="ps-3">
+                                            <strong>{{item.name}}</strong><br>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="material-icons-outlined icons btn-align">
+                                            currency_rupee
+                                        </span> <span
+                                            class="fs-5 text-ash btn-align"><strong>{{item.price}}</strong></span>
+                                    </td>
+                                    <td>
+                                        <span class="fs-5 text-ash btn-align "><strong>{{item.quantity}}</strong></span>
+
+                                    </td>
+                                    <td>
+                                       <button class="bg-transparent border-0" (click)="delete(i)">
+                                        <span class="material-icons-outlined ps-3 text-danger btn-align">
+                                            delete
+                                        </span>
+                                       </button>
+                                    </td>
+                                    <td>
+                                        <span class="material-icons-outlined icons btn-align">
+                                            currency_rupee
+                                        </span> <span class="fs-5 text-ash btn-align"><strong>{{item.price *
+                                                item.quantity}}</strong></span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-head text-center p-2 bg-ash text-white">
+                        <h4>Cart Total</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal
+                            </span>
+                            <span class="fw-bold">
+                              {{totalPrice}}
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <button class="btn btn-danger w-100" (click)="checkOut()">Proceed to check out</button>
+                        </div>
+                        <div class="text-center pt-3">
+                            <button class="btn btn-light border border-1 w-100" (click)="back()"> Continue Shopping</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="cartList.length == 0 && !purchase">
+        <div class="d-flex justify-content-center align-items-center">
+            <img class="img2" src="assets/images/3298067.jpg" alt="No Cart">
+        </div>
+        <p class="text-center text-danger"><em>You dont seem to have any items in the cart</em></p>
+    </div>
+    <div *ngIf="purchase">
+        <div class="d-flex justify-content-center align-items-center">
+            <img class="img3" src="../../../assets/images/Wavy_Bus-26_Single-03.jpg" alt="No Cart">
+        </div>
+        <p class="text-center text-danger"><em>Thanks for purchasing</em></p>
+    </div>
+</div>
+

@@ -1,0 +1,98 @@
+<div class="container-fluid p-4">
+    <div>
+        <!-- <div class="d-flex justify-content-between">
+            <h4 class="text-danger">Product Info</h4>
+            <button class="btn btn-danger" (click)="back()">Back</button>
+        </div> -->
+        <div class="row">
+            <div class="col-7">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Details</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of productList;let i=index">
+                                <td width="40%">
+                                    <img class="tab-img" [src]="item.imageUrl" alt="">
+                                    <span class="ps-3"> 
+                                        {{item.name | titlecase}} <span class="badge rounded-pill text-bg-success">Rs {{item.price}}</span>
+                                    </span>
+                                </td>
+                                <td width="40%">
+                                    <span class="desc1">{{item.description}}</span> 
+                                </td>
+                                <td  width="20%" >
+                                    <button class="border-0 bg-transparent btn-align" (click)="editProduct(item, i)">
+                                        <span class="material-icons-outlined icons1">
+                                            edit
+                                            </span>
+                                    </button>
+                                    <button class="border-0 bg-transparent btn-align" (click)="deleteProduct(item,i)">
+                                        <span class="material-icons-outlined icons1">
+                                            delete
+                                            </span>
+                                        </button>
+                                      
+                                </td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Add Products</h5>
+                        <div>
+                            <form action="" #addForm="ngForm" (ngSubmit)="addForm.form.valid && submitForm(addForm)" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <label class="text-dark form-label" for="name">Product Name</label>
+                                        <input class="form-control " type="text" placeholder="Name" id="name"
+                                            name="name" #username="ngModel" [(ngModel)]="addForms.name">
+                                    </div>
+                                    <div class="col-5 ">
+                                        <label class="text-dark form-label" for="price">Price</label>
+                                        <input class="form-control " type="number" placeholder="Price" id="price"
+                                            name="price" #price="ngModel" [(ngModel)]="addForms.price">
+                                    </div>
+                                    <div class="col-12 pt-2">
+                                        <label class="text-dark form-label" for="price">Description</label>
+                                        <input class="form-control " type="text-area" placeholder="Description"
+                                            id="description" name="description" #description="ngModel"
+                                            [(ngModel)]="addForms.description">
+                                    </div>
+                                    <div class="col-7 pt-2">
+                                        <label class="text-dark form-label" for="price">Upload Image</label>
+                                        <div class="input-group ">
+                                            <input type="file" x-ref="file"  name="img[]" class="d-none">
+                                            <input type="file" class="form-control form-control-lg" placeholder="Upload Image" x-model="fileName" (change)="showPreviewImage($event)" accept="image/png, image/jpeg">
+                                          </div>
+                                    </div>
+                                    <div class="col-5 pt-2"  *ngIf="image" >
+                                        <img [src]="imageUrl" class="imgPlaceholder" alt="no Image">
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button class="btn btn-danger">Add Product</button>
+                                        <p class="text-danger">{{errorMessage}}</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+</div>
